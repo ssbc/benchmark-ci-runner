@@ -1,0 +1,17 @@
+scm:
+    type: git
+    repository: ssb://%ojQGCYUpXg0KPz8y1ou+m6XzCz/89O26QepBrv8vKjM=.sha256
+    rev: master
+
+buildEvery:
+    #build project every 5 minutes
+    time: "0 */5 * * * *"
+    #but only if there is scm changes
+    withScmChangesOnly: true
+
+steps:
+    - name: system information
+      cmd: node system-information-out.js > system-info.json
+
+    - name: npm ls
+      cmd: npm ls . > npm-ls.txt || true && npm ls . --json --parseable > npm-ls.json || true

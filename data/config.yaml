@@ -1,0 +1,34 @@
+plugins:
+    - nci-projects-reloader
+    - nci-static-server
+    #- nci-rest-api-server
+    - nci-scheduler
+    #ui better be last plugin
+    - nci-classic-ui
+
+nodes:
+    - type: local
+      #allow maximum 3 parallel builds
+      maxExecutorsCount: 3
+
+http:
+    host: 127.0.0.1
+    port: 3000
+    url: http://127.0.0.1:3000
+
+    static:
+        #this settings will be consumed by static server plugin 
+        locations:
+            #serve static for ui plugin
+            - url: /favicon.ico
+              root: node_modules/nci-classic-ui/static/
+            - url: !!js/regexp ^/(js|css|fonts|images)/
+              root: node_modules/nci-classic-ui/static/
+            #serve project workspaces via http, remove lines
+            #below if don`t need/want that
+            - url: !!js/regexp ^/projects/(\w|-)+/workspace/
+              root: data/
+
+storage:
+    #use leveldown as db backend
+    backend: leveldown
