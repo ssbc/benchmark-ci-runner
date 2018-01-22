@@ -1,7 +1,7 @@
 plugins:
     - nci-projects-reloader
     - nci-static-server
-    #- nci-rest-api-server
+    - nci-rest-api-server
     - nci-scheduler
     #ui better be last plugin
     - nci-classic-ui

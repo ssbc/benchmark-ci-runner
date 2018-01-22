@@ -19,6 +19,7 @@
     "nci": "^1.0.20",
     "nci-classic-ui": "^1.0.8",
     "nci-projects-reloader": "^1.1.3",
+    "nci-rest-api-server": "^1.0.4",
     "nci-scheduler": "^1.1.2",
     "nci-static-server": "",
     "nci-yaml-reader": "^1.2.1",
