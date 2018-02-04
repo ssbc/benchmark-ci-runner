@@ -17,7 +17,7 @@ steps:
       cmd: npm install
 
     - name: npm ls
-      cmd: npm ls . > npm-ls.txt || true && npm ls . --json --parseable > npm-ls.json || true
+      cmd: npm ls > npm-ls.txt || true && npm ls --json --parseable > npm-ls.json || true
 
     - name: run benchmarks
       cmd: sh run-all.sh
